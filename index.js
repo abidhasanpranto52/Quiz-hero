@@ -43,13 +43,16 @@ startQuiz.addEventListener("click", () => {
   }, 1000);
 });
 
+
+
 // All quiz data fetched from json
 const loadQuiz = async () => {
   const res = await fetch("./data/quiz.json");
-  const data = await res.json;
+  const data = await res.json(); // add parentheses to call the json method
   quizData = data;
   displayQuiz(data);
 };
+
 
 // Displaying quiz on quiz page
 const displayQuiz = (data) => {
@@ -74,7 +77,7 @@ const displayQuiz = (data) => {
 };
 
 // EventListener for quiz submit button
-document.querySelector("#submit").addEventListener("click", () => {
+document.getElementById("submit").addEventListener("click", () => {
   if (answers.length < 6) {
     return;
   }
